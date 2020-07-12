@@ -11,6 +11,7 @@ import android.view.animation.LayoutAnimationController;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -18,6 +19,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.amulyakhare.textdrawable.TextDrawable;
 import com.amulyakhare.textdrawable.util.ColorGenerator;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.util.List;
 
@@ -55,6 +60,28 @@ public class OrderAdapter  extends RecyclerView.Adapter<OrderAdapter.ViewHolder>
        context.startActivity(new Intent(context, MapsActivity.class));
        Common.CurrentKey=list.get(position).getRequest_id();
    });
+   if (list.get(position).getStatus().equals("0"))
+   {
+       holder.brndelet.setVisibility(View.VISIBLE);
+       holder.brndelet.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               if (list.get(position).getStatus().equals("0"))
+               {
+                   FirebaseDatabase.getInstance().getReference(Common.REQUEST)
+                       .child(list.get(position).getRequest_id())
+                           .removeValue();
+                   Toast.makeText(context, "Remove Done!", Toast.LENGTH_SHORT).show();
+                   notifyDataSetChanged();
+               }else {
+                   Toast.makeText(context, "Not Remove it ,Order is agree...", Toast.LENGTH_SHORT).show();
+               }
+           }
+       });
+
+   }else {
+       holder.brndelet.setVisibility(View.GONE);
+   }
         LayoutAnimationController layoutAnimationController = AnimationUtils.loadLayoutAnimation(context, R.anim.layoutitem_from_left);
        holder.recyclerView.setLayoutAnimation(layoutAnimationController);
         adapter.notifyDataSetChanged();
@@ -86,7 +113,7 @@ public class OrderAdapter  extends RecyclerView.Adapter<OrderAdapter.ViewHolder>
         ImageView imageprofile;
         TextView phone,address,status,total;
         RecyclerView recyclerView;
-        FButton fButton;
+        FButton fButton,brndelet;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             recyclerView=itemView.findViewById(R.id.recycle_food_list);
@@ -96,6 +123,7 @@ public class OrderAdapter  extends RecyclerView.Adapter<OrderAdapter.ViewHolder>
             imageprofile=itemView.findViewById(R.id.imageprofile);
             total=itemView.findViewById(R.id.total);
             fButton=itemView.findViewById(R.id.btnsingin);
+            brndelet=itemView.findViewById(R.id.btndelet);
         }
     }
 }
