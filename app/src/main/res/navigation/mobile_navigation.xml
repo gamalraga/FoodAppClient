@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="gamal.myappnew.clientside.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_categories"
+        android:name="gamal.myappnew.clientside.ui.Category.CategoryFragment"
+        android:label="Categories"
+        tools:layout="@layout/fragment_categories" />
+
+    <fragment
+        android:id="@+id/nav_myacount"
+        android:name="gamal.myappnew.clientside.ui.MyAcount.MyAcountFragment"
+        android:label="My Acount"
+        tools:layout="@layout/fragment_my_acount" />
+
+
+    <fragment
+        android:id="@+id/nav_food_list"
+        android:name="gamal.myappnew.clientside.ui.Foodlist.FoodListFragment"
+        android:label="Food List"
+        tools:layout="@layout/fragment_order_" />
+
+
+
+
+    <fragment
+        android:id="@+id/nav_myorder"
+        android:name="gamal.myappnew.clientside.ui.Order.OrderFragment"
+        android:label="My Order"
+        tools:layout="@layout/fragment_order_" />
+
+    <fragment
+        android:id="@+id/nav_wishlist"
+        android:name="gamal.myappnew.clientside.ui.Wishlist.WislistFragment"
+        android:label="Wishlist"
+        tools:layout="@layout/fragment_wislist" />
+
+    <fragment
+        android:id="@+id/nav_showfood"
+        android:name="gamal.myappnew.clientside.Fragment.show_foodFragment"
+        android:label="Wishlist"
+        tools:layout="@layout/fragment_order_" />
+
+
+</navigation>

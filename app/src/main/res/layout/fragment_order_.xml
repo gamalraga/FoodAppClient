@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.swiperefreshlayout.widget.SwipeRefreshLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layoutDirection="ltr"
+    android:id="@+id/swip_layout"
+    tools:context=".ui.Foodlist.FoodListFragment"
+    >
+
+  <androidx.recyclerview.widget.RecyclerView
+      android:layout_width="match_parent"
+      android:layout_height="match_parent"
+      android:id="@+id/recycle_order"
+      />
+  <TextView
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:text="EMPTY  Orders ! "
+      android:id="@+id/empty"
+      android:visibility="gone"
+      android:textStyle="bold"
+      android:textSize="30sp"
+      android:layout_centerVertical="true"
+      android:layout_centerHorizontal="true"
+      android:textAlignment="center"
+      android:fontFamily="@font/brandon_medium"
+      android:layout_centerInParent="true"
+      />
+
+</androidx.swiperefreshlayout.widget.SwipeRefreshLayout>

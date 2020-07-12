@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:padding="16dp"
+    android:layoutDirection="ltr"
+    android:textDirection="ltr"
+    android:background="@color/searchBarIconColor"
+    android:layout_height="match_parent"
+    tools:context=".CartActivity">
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@id/cardview"
+        android:layout_margin="10dp"
+        android:id="@+id/recycle_cart"
+        android:background="@android:color/transparent"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="EMPTY  CART ! "
+        android:id="@+id/empty"
+        android:visibility="gone"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:textAlignment="center"
+        android:fontFamily="@font/brandon_medium"
+        android:layout_centerInParent="true"
+        />
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@color/cardview_shadow_end_color"
+        android:id="@+id/cardview"
+        android:visibility="visible"
+        app:cardBackgroundColor="@android:color/white"
+        android:layout_alignParentBottom="true"
+        >
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Total :"
+                    android:fontFamily="@font/brandon_medium"
+                    android:textSize="20sp"
+                    android:textColor="@color/colorPrimary"
+                    />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="$10.000"
+                    android:id="@+id/total"
+                    android:textSize="24sp"
+                    android:textColor="@color/colorPrimary"
+                    />
+            </LinearLayout>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/btnplaceholder"
+                android:textColor="@android:color/white"
+                android:background="@color/colorPrimaryDark"
+                android:layout_marginRight="8dp"
+                android:layout_marginLeft="8dp"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="8dp"
+                android:text="Place Order"
+                />
+        </RelativeLayout>
+    </androidx.cardview.widget.CardView>
+
+</RelativeLayout>
